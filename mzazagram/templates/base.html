@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load staticfiles %}
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico'  %}">
+
+    {% block styles %}
+        {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/userprofile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/explore.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+
+    {% endblock %}
+    <title>Instagram</title>
+
+</head>
+<body>
+{% include 'navbar.html' %}
+
+{% block content %}
+
+
+
+
+
+{%endblock%}
+{% include 'footer.html' %}
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    <script src="{% static 'js/scripts.js' %}"></script>
+{% endblock %}
+</body>
+</html>
