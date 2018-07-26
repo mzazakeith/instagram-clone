@@ -1,6 +1,25 @@
+{%extends 'base.html'%}
+{% block content %}
+    <div class="container text-center">
+
         <div class="row text-center">
             {% if profile%}
                 <h2>Found {{ profile|length }} profile(s) with the username {{message}}</h2>
             {% else %}
                 <h2> Found 0 profile(s)  with the username {{message}}</h2>
             {% endif %}
+
+        </div>
+
+        <div class="row text-center">
+
+            {% if profile %}
+                {% for prof in profile %}
+                    <div class="col-sm-6 col-md-3">
+                        <a href="{%url 'profile' user_id=prof.user.id %}"<h1>{{prof.user.username}}</h1>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
