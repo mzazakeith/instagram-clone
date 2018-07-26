@@ -1,0 +1,6 @@
+        <div class="row text-center">
+            {% if profile%}
+                <h2>Found {{ profile|length }} profile(s) with the username {{message}}</h2>
+            {% else %}
+                <h2> Found 0 profile(s)  with the username {{message}}</h2>
+            {% endif %}
