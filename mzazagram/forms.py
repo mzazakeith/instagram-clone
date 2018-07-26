@@ -6,3 +6,9 @@ class SignupForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2')
 
 
+class NewImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        exclude = ['owner', 'pub_date']
+
+
