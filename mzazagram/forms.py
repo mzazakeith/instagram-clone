@@ -12,3 +12,8 @@ class NewImageForm(forms.ModelForm):
         exclude = ['owner', 'pub_date']
 
 
+class CreateProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        exclude = ['user']
+
