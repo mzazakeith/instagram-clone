@@ -1,0 +1,106 @@
+{%extends "base.html"%}
+{% load bootstrap4 %}
+{% load staticfiles %}
+
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row profile-header">
+            <div class="col-md-1">
+                {#                an empty div for alignment#}
+            </div>
+
+            {#            .........profile photo .....................#}
+
+            <div class="col-md-3 text-center">
+                <img class="img-fluid img-circle" src="{{ profile.profile_photo.url }}" alt="{{ user }}">
+            </div>
+            {#            ......................end of profile photo#}
+
+
+            <div class="col-md-4 in-profile-header">
+                <div class="row ">
+                    <h2>{{ user }}</h2>
+                    <div class="settings-button">
+                        <button class="btn btn-light btn-white btn-sm widen"><strong>Settings</strong></button>
+                    </div>
+                </div>
+
+                {#                ............................counters for posts followers and people being followed ................................#}
+                <div class="row text-left small-counters">
+                    <span class="col-md-4"><strong>{{ posts }}</strong> posts</span>
+                    <span class="col-md-4"><strong>{{followers }}</strong> followers</span>
+                    <span class="col-md-4 small-counter"><strong>{{ following }}</strong> following</span>
+                </div>
+                {#                end of counters#}
+
+
+
+                <br>
+
+                {#                bio#}
+                <div class="row">
+                    <p class="bio-profile">{{ profile.bio }}</p>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a class="text-center" href="{% url 'new-image' %}" ><img class="img-fluid upload-icon-profile" src="{% static 'images/new_post.png'  %}" alt="new-image" ></a>
+
+                </div>
+                {#                end of bio#}
+
+            </div>
+            <div class="col-md-4">
+                {#                an empty div for alignment#}
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <hr>
+        <div class="row text-center grid">
+
+            {#        images for the profile#}
+            {% for image in images %}
+                <div class="col-md-4 grid-object">
+                    <img class="img-fluid top-space" style="width:85%;height:100%;object-fit:cover;" src="{{ image.image.url }}" alt="{{ image.image_caption }}" data-toggle="modal" data-target="#{{image.id}}">
+                </div>
+            {% endfor %}
+            {#        end of profile images#}
+        </div>
+
+        <!--modal starts here-->
+        {% for image in images %}
+            <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"> {{image.image_name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>{{ image.owner }}</strong></p>
+                            <div class="card">
+
+                                <img src="{{image.image.url}}" class="img-fluid rounded element" alt="Image posted by current user">
+                                <img class="popUp"  src="{% static 'images/heart2.png' %}" alt="like popup">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--modal ends here-->
+        {% endfor %}
+
+
+
+    </div>
+
+
+{% endblock %}
+
+
+
+
