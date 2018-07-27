@@ -68,3 +68,20 @@ def create_profile(request):
     return render(request, 'registration/activated.html', {"form": form})
 
 
+@login_required
+def comment(request,image_id):
+   if request.method == 'POST':
+       image = get_object_or_404(Image, pk = image_id)
+       form = CommentForm(request.POST, request.FILES)
+       if form.is_valid():
+           comment = form.save(commit=False)
+           comment.commenter = request.user
+           comment.image_id = image
+           comment.save()
+           return redirect(index)
+   else:
+       form = CommentForm()
+   return render(request, 'index.html',{'comment':form})
+
+
+
