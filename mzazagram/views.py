@@ -44,6 +44,15 @@ def userprofile(request, user_id):
     return render(request, 'profile/userprofile.html', {"user": users, "profile": profile, "images": images,"followers":followers, "following":following, "posts":posts, "people_following":people_following})
 
 
+def follow(request, user_id):
+    users = User.objects.get(id=user_id)
+    try:
+        follow = Follow.objects.add_follower(request.user, users)
+    except AlreadyExistsError:
+        return render(request, "followed.html")
+    # return render(request, 'profile/userprofile.html', {"follow": follow})
+    return redirect('/userprofile/'+user_id)
+
 @login_required
 def create_profile(request):
     current_user = request.user
