@@ -1,0 +1,60 @@
+.feed-object{
+    padding-bottom: 7%;
+}
+.users{
+    max-height:310px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.profile-image{
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+
+}
+
+.story{
+    padding-bottom: 4px;
+}
+
+.fix-it{
+    /*float: right;*/
+    position: fixed;
+    /*margin-right:200px;*/
+    max-width: 350px;
+}
+
+.link{
+    text-decoration: none;
+    text-decoration-color:rgb(25, 26, 28);
+    color: rgb(25, 26, 28);
+}
+.link:hover{
+    text-decoration: none;
+    text-decoration-color:rgb(25, 26, 28);
+    color: rgb(25, 26, 28);
+}
+
+.popUp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    display: none;
+}
+.element{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.feed-section{
+    padding-top:2%;
+}
+
+.like-icon{
+    padding-top: 5px;
+    padding-left: 5px;
+}
