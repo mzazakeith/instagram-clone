@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+{#....................................navbar fo larger devices ...........................................................#}
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top larger-devices">
+    <span class="site-brand-container"><a class="navbar-brand " href="/"><span class="logo-container"><img class="logo" src="{% static 'images/logo.png' %}" alt=""></span> <span class="vr">|</span><span class="my-font">Instagram</span></a></span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <span class="search-container">
+        <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+
+            <div class="input-group ">
+                <input type="text" class="form-control form-control-sm" placeholder="Search Username" name="profile">
+
+            </div>
+
+        </form>
+    </span>
+<div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav right-side-nav">
+            <li><a href="{% url 'explore' %}"><img class="explore-icon" src="{% static 'images/search_small.png' %}" alt=""></a></li>
+            <li class="noti-icon-cont"><a href="" ><img class="noti-icon" src="{% static 'images/notification.png' %}" alt=""></a></li>
+            <li class="profile-icon-cont"><a href="{% url 'myprofile' %}"> <img class="profile-icon" src="{% static 'images/profile.png' %}" alt=""></a></li>
+        </ul>
+
+    </div>
+</nav>
+{#..........................................end of navbar for larger devices.................................................#}
+
