@@ -1,4 +1,15 @@
 
+@login_required
+def profile(request):
+    current_user = request.user.id
+    user = request.user
+    profile = Profile.objects.get(user=current_user)
+    images = Image.objects.filter(owner=current_user).order_by('-pub_date')
+    followers = len(Follow.objects.followers(user))
+    following = len(Follow.objects.following(user))
+    posts = len(Image.objects.filter(owner=user))
+    return render(request, 'profile.html', {"images": images, 'user': request.user, "profile": profile,"followers":followers,"following":following,"posts":posts})
+
 
 @login_required
 def explore(request):
