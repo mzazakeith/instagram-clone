@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    {% endblock %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<nav class="navbar fixed-bottom navbar-expand-lg navbar-light bg-white foot-height">
+    <li><a href="{% url 'home' %}" ><img class="home-icon" src="{% static 'images/home.png' %}" alt="home"></a></li>
+    <li><a href="{% url 'explore' %}"> <img class="search-icon" src="{% static 'images/search_small.png' %}" alt=" explore "></a></li>
+    <li><a href="{% url 'new-image' %}" ><img class="upload-icon" src="{% static 'images/new_post.png' %}" alt="upload new image"></a></li>
+    <li><a href="{% url 'myprofile' %}" ><img class="profile-icon-phone" src="{% static 'images/profile.png' %}" alt="my profile"></a></li>
+
+</body>
+</html>
