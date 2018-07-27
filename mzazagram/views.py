@@ -1,5 +1,20 @@
 
 @login_required
+def upload(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.owner = current_user
+            image.save()
+            return redirect(index)
+    else:
+        form = NewImageForm()
+    return render(request, 'new_image.html', {"form": form})
+
+
+@login_required
 def profile(request):
     current_user = request.user.id
     user = request.user
