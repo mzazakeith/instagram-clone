@@ -1,0 +1,64 @@
+.navbar-brand{
+    font-size: 5vh;
+}
+.vr{
+    font-weight: lighter;
+    padding-right:10%;
+}
+
+.bg-white{
+    background-color: #ffffff;
+}
+
+.logo{
+    width : 35px;
+    height: 35px;
+}
+
+.logo-container{
+    padding-right:7%;
+}
+
+.site-brand-container{
+    padding-left: 15%;
+}
+
+.search-container{
+    padding-left: 15%;
+}
+
+.profile-icon{
+    width : 24px;
+    height: 24px;
+}
+
+.noti-icon{
+    width: 24px;
+    height: 24px;
+}
+
+.explore-icon{
+    width: 28px;
+    height: 28px;
+}
+
+.right-side-nav{
+    padding-left: 30%;
+}
+
+.noti-icon-cont{
+    padding-left: 15%;
+}
+
+.profile-icon-cont{
+    padding-left: 35%;
+}
+
+.smaller-devices{
+    text-align: center;
+}
+.smaller-devices{
+    visibility: hidden;
+}
+
+
