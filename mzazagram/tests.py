@@ -1,3 +1,8 @@
+from PIL import Image
+import tempfile
+from django.test import TestCase
+from .models import Image
+from django.test import override_settings
 
 
 def get_temporary_image(temp_file):
