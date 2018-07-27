@@ -1,0 +1,28 @@
+.bg-white{
+    background-color: white;
+}
+
+li{
+    list-style: none;
+}
+
+.foot-height{
+    height: 100px;
+    visibility: hidden;
+}
+
+
+.home-icon{
+    height: 34px;
+    width: 34px;
+}
+/*.search-icon{}*/
+.upload-icon{
+    height: 34px;
+    width: 34px;
+}
+.profile-icon-phone{
+    height: 36px;
+    width: 36px;
+}
+
