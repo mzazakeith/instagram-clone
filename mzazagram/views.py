@@ -1,3 +1,27 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import render, redirect, get_object_or_404
+from friendship.exceptions import AlreadyExistsError
+from friendship.models import Follow
+
+from .models import Image, Profile, Comments
+from .forms import NewImageForm, CreateProfileForm, CommentForm
+
+
+@login_required(login_url='signup')
+def index(request):
+    comments = Comments.objects.all()
+    form = CommentForm()
+    mine = Profile.objects.get(user=request.user.id)
+    profiles = Profile.objects.all()
+    user = request.user
+    following = Follow.objects.following(user)
+    images =[]
+    for follower in following:
+        wenyewe = follower.id
+        images+=Image.objects.filter(owner=wenyewe).order_by('-pub_date')
+    return render(request, 'index.html',{'following':following,'images':images,"profiles":profiles, "mine":mine,"comment":form, "comments":comments, 'user':user})
+
 
 @login_required
 def upload(request):
