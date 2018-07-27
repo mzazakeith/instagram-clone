@@ -1,0 +1,39 @@
+.img-circle {
+    border-radius: 50%;
+    height: 152px;
+    width: 152px;
+}
+
+.profile-header{
+    padding-top: 1%;
+}
+
+.in-profile-header{
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+.follow-button{
+    float: left;
+    padding-left: 7%;
+    padding-top: 1%;
+}
+
+.widen{
+    width: 130px;
+}
+
+.grid-object{
+    height: 295px;
+}
+
+.grid{
+    padding-top:2%;
+}
+
+.top-space{
+    padding-top:7%;
+}
+.btn-white{
+    border: thin solid grey;
+}
