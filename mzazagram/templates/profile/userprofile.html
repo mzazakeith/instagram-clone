@@ -1,0 +1,24 @@
+        <!--modal starts here-->
+        {% for image in images %}
+            <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle"> {{image.image_name}}</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p><strong>{{ image.owner }}</strong></p>
+                            <div class="card">
+                                <img  src="{{image.image.url}}" class="img-fluid rounded element" align="{{ image.owner }}">
+                                <img class="popUp"  src="{% static 'images/heart2.png' %}" alt="heart for popup">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--modal ends here-->
+        {% endfor %}
