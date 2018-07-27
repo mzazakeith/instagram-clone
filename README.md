@@ -73,14 +73,7 @@ Start the server
 python manage.py runserver
 
 ```
-Give an example
-```
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
 
 ## Deployment
 
@@ -89,7 +82,7 @@ Deployment was done using heroku.
 
 ## Author
 
-* **Billie Thompson** - [Github](https://github.com/mzazakeith)
+* **Keith Mzaza** - [Github](https://github.com/mzazakeith)
 
 ## License
 
