@@ -31,6 +31,19 @@ def explore(request):
     images = Image.objects.all().order_by('-pub_date')
     return render(request, 'explore.html', {"images": images})
 
+
+@login_required
+def userprofile(request, user_id):
+    users = User.objects.get(id=user_id)
+    profile = Profile.objects.get(user=users)
+    images = Image.objects.filter(owner=users).order_by('-pub_date')
+    followers = len(Follow.objects.followers(users))
+    following = len(Follow.objects.following(users))
+    posts = len(Image.objects.filter(owner=users))
+    people_following = Follow.objects.following(request.user)
+    return render(request, 'profile/userprofile.html', {"user": users, "profile": profile, "images": images,"followers":followers, "following":following, "posts":posts, "people_following":people_following})
+
+
 @login_required
 def create_profile(request):
     current_user = request.user
