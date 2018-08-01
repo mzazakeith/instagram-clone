@@ -14,7 +14,7 @@
                         <div class="card ">
                             <br>
                             <span><p><strong>&nbsp;&nbsp;&nbsp;<a href="{% url 'profile' user_id=image.owner.id %}" class="link">{{ image.owner }}</a></strong></p></span>
-                            <img class="img-fluid element" src="{{ image.image.url }}" alt="{{ image.owner }}">
+                            <img class="img-fluid element" src="{{ image.image.cdn_url }}" alt="{{ image.owner }}">
                             <img class="popUp"  src="{% static 'images/heart2.png' %}" alt="like popup">
                             <span class="like-icon"><img class="noti-icon" src="{% static 'images/notification.png' %}"></span>
                             <p><strong>&nbsp;<a href="{% url 'profile' user_id=image.owner.id %}" class="link">{{ image.owner }}</a></strong>&nbsp;{{ image.image_caption }}</p>
@@ -38,13 +38,13 @@
             </div>
             <div class="col-md-4">
                 <div class="container-fluid fix-it">
-                    <img class="img-fluid profile-image" src="{{ mine.profile_photo.url }}" alt="{{ mine.user.username }}">&nbsp;<strong>{{ mine.user.username }}</strong>
+                    <img class="img-fluid profile-image" src="{{ mine.profile_photo.cdn_url }}" alt="{{ mine.user.username }}">&nbsp;<strong>{{ mine.user.username }}</strong>
                     <hr>
                     <div class="users">
                         {% for profile in profiles %}
                             <div>
                                 {% if profile.user.username != user.username %}
-                                    <img class="img-fluid profile-image story" src="{{ profile.profile_photo.url }}" alt="{{ profile.user.username }}"><strong>&nbsp;&nbsp;<a class="link" href="{% url 'profile' user_id=profile.user.id %}" >{{ profile.user.username }}</a></strong>
+                                    <img class="img-fluid profile-image story" src="{{ profile.profile_photo.cdn_url }}" alt="{{ profile.user.username }}"><strong>&nbsp;&nbsp;<a class="link" href="{% url 'profile' user_id=profile.user.id %}" >{{ profile.user.username }}</a></strong>
                                 {% endif %}
                             </div>
                         {% endfor %}

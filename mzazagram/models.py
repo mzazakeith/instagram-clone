@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from pyuploadcare.dj.models import ImageField
 
 class Profile(models.Model):
-    profile_photo = models.ImageField(upload_to='images/')
+    profile_photo = ImageField()
     bio = models.CharField(max_length=300)
     user = models.ForeignKey(User)
 
@@ -17,7 +17,7 @@ class Profile(models.Model):
 
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='images/')
+    image = ImageField()
     image_caption = models.CharField(max_length=300)
     owner = models.ForeignKey(User)
     pub_date = models.DateTimeField(auto_now_add=True)
